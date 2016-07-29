@@ -14,7 +14,7 @@ class Pokeslack:
         self.sent_pokemon = {}
         self.rarity_limit = rarity_limit
         self.slack_webhook_url = slack_webhook_url
-		self.buffer_time = buffer_time
+        self.buffer_time = buffer_time
 
     def try_send_pokemon(self, pokemon, debug):
 

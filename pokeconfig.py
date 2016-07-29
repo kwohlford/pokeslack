@@ -10,7 +10,7 @@ class Pokeconfig:
     EXPIRE_BUFFER_SECONDS = 5 # if a pokemon expires in 5 seconds or less (includes negative/stale pokemon), dont send it
     DEFAULT_NUM_STEPS = 5
     DEFAULT_DISTANCE_UNIT = 'miles'
-	DEFAULT_BUFFER_TIME = 0
+    DEFAULT_BUFFER_TIME = 0
 
     # configured via env
     auth_service = None
@@ -21,7 +21,7 @@ class Pokeconfig:
     slack_webhook_url = None
     num_steps = DEFAULT_NUM_STEPS
     distance_unit = DEFAULT_DISTANCE_UNIT
-	buffer_time = DEFAULT_BUFFER_TIME
+    buffer_time = DEFAULT_BUFFER_TIME
     position = ()
 
     def load_config(self, config_path):

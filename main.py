@@ -34,7 +34,7 @@ if __name__ == '__main__':
     rarity_limit = config.rarity_limit
     slack_webhook_url = config.slack_webhook_url
     num_steps = config.num_steps
-	buffer_time = config.buffer_time
+    buffer_time = config.buffer_time
 
     # debug vars, used to test slack integration w/o waiting
     use_cache = False
