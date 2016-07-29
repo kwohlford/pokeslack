@@ -10,10 +10,11 @@ from pokeconfig import Pokeconfig
 logger = logging.getLogger(__name__)
 
 class Pokeslack:
-    def __init__(self, rarity_limit, slack_webhook_url):
+    def __init__(self, rarity_limit, slack_webhook_url, buffer_time):
         self.sent_pokemon = {}
         self.rarity_limit = rarity_limit
         self.slack_webhook_url = slack_webhook_url
+		self.buffer_time = buffer_time
 
     def try_send_pokemon(self, pokemon, debug):
 
@@ -27,7 +28,7 @@ class Pokeslack:
 
         padded_distance = pokemon.get_distance() * 1.1
         walk_distance_per_second = Pokeconfig.WALK_METERS_PER_SECOND if Pokeconfig.get().distance_unit == 'meters' else Pokeconfig.WALK_MILES_PER_SECOND
-        travel_time = padded_distance / walk_distance_per_second
+        travel_time = ( padded_distance / walk_distance_per_second ) + self.buffer_time
         if pokemon.expires_in().total_seconds() < travel_time:
             logger.info('skipping pokemon since it\'s too far: traveltime=%s for distance=%s', travel_time, pokemon.get_distance_str())
             return

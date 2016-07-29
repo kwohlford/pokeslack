@@ -27,6 +27,10 @@
 			"description": "Number of steps to search.",
 			"value": "5"
 		},
+		"BUFFER_TIME": {
+			"description": "Additional buffer time in seconds to add on to transit time (i.e. for getting to street level from a tall apt building).",
+			"value": "0"
+		},
 		"DISTANCE_UNIT": {
 			"description": "Unit of measurement to use (meters or miles)",
 			"value": "miles"

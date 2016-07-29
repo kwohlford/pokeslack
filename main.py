@@ -34,6 +34,7 @@ if __name__ == '__main__':
     rarity_limit = config.rarity_limit
     slack_webhook_url = config.slack_webhook_url
     num_steps = config.num_steps
+	buffer_time = config.buffer_time
 
     # debug vars, used to test slack integration w/o waiting
     use_cache = False
@@ -46,7 +47,7 @@ if __name__ == '__main__':
 
     api = PGoApi()
     pokesearch = Pokesearch(api, auth_service, username, password, position)
-    pokeslack = Pokeslack(rarity_limit, slack_webhook_url)
+    pokeslack = Pokeslack(rarity_limit, slack_webhook_url, buffer_time)
 
     if not use_cache or not os.path.exists(cached_filename):
         logger.info('searching starting at latlng: (%s, %s)', position[0], position[1])
